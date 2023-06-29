@@ -32,27 +32,27 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {
+function init() 
+{
   inquirer
     .prompt(questions)
     .then((answers) => {
       // Process the user's answers and generate the README content
-      const readmeContent = `
-# ${answers.title}
+       const readmeContent = `
+            # ${answers.title}
 
-## Description
-${answers.description}
+            ## Description
+            ${answers.description}
 
-## Instructions
-${answers.instructions}
-`;
-
+            ## Instructions
+            ${answers.instructions}
+            `;
       // Write the README file
-      writeToFile('README.md', readmeContent);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+            writeToFile('README.md', readmeContent);
+            })
+            .catch((error) => {
+            console.error(error);
+            });
 }
 
 // Function call to initialize app
