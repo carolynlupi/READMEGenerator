@@ -52,16 +52,18 @@ const questions = [
   },
   {
     type: 'list',
+    name: 'confirmLicenses2',
+    message: 'Would you like to include a license? Please say yes or no.',
+    choices: ['yes', 'no'],
+    when: ({ confirmLicenses }) => !confirmLicenses
+  },
+  {
+    type: 'list',
     name: 'licenses',
     message: 'What license would you like to include?',
-    choides: ['MIT', 'GPL', 'CC--0'],
-    when: ({ confirmLicenses}) => {
-      if (confirmLicenses) {
-        return true;
-      } else {
-        return false;
-      }
-    }
+    choices: ['MIT', 'GPL', 'CC--0'],
+    when: ({ confirmLicenses, confirmLicenses2 }) =>
+      confirmLicenses || confirmLicenses2 === 'yes'
   }
 ];
 
