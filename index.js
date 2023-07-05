@@ -65,40 +65,39 @@ const questions = [
   }
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, (err) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log(`Successfully generated ${fileName}!`);
-    }
-  });
+
+const writeToFile = data => {
+  return new Promise((resolve, reject) => {
+      // make a readme file and add to dist folder
+      fs.writeFile('./dist/README.md', data, err => {
+          // if there's an error, reject the Promise and send the error to .catch() method
+          if (err) {
+              reject (err);
+              // return out of the function here to make sure the Promise doesn't continut to execute the resolve() function
+              return;
+          }
+          // if everything went well, resolve the Promise and send the successful data to the .then() method
+          resolve({
+              ok: true,
+              message: console.log('Success! Navigate to the "dist" folder to see your README!')
+          });
+      })
+  })
 }
 
-// TODO: Create a function to initialize app
-function init() 
-{
-  inquirer
-    .prompt(questions)
-    .then((answers) => {
-      // Process the user's answers and generate the README content
-       const readmeContent = `
-            # ${answers.title}
-
-            ## Description
-            ${answers.description}
-
-            ## Instructions
-            ${answers.instructions}
-            `;
-      // Write the README file
-            writeToFile('README.md', readmeContent);
-            })
-            .catch((error) => {
-            console.error(error);
-            });
+// Initialize app
+const init = () => {
+  return inquirer.prompt(questions);
 }
 
 // Function call to initialize app
-init();
+init()
+.then(userInput => {
+  return generateMarkdown(userInput);
+})
+.then(readmeInfo => {
+  return writeToFile(readmeInfo);
+})
+.catch(err => {
+  console.log(err);
+})
