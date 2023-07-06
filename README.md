@@ -10,6 +10,7 @@ Welcome to the README Generator! This command-line application allows you to qui
 - Questions
 - Credits
 
+
 ## Video Demo
 Please follow this youtube link to watch the full demonstration of this application:
 https://youtu.be/q6_maGgqHa0
