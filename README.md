@@ -13,6 +13,8 @@ Welcome to the README Generator! This command-line application allows you to qui
 ## Video Demo
 Please follow this youtube link to watch the full demonstration of this application:
 https://youtu.be/q6_maGgqHa0
+
+## GIF
 ![Screen_Recording_2023-07-06_at_1_20_08_AM_AdobeExpress (2)](https://github.com/carolynlupi/READMEGenerator/assets/128636588/eb7edd7b-4016-4ea8-b9fb-bde4f8ed1602)
 
 
