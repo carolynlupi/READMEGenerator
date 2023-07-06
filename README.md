@@ -1,4 +1,4 @@
-#README Generator
+# README Generator
 Welcome to the README Generator! This command-line application allows you to quickly generate a README file for your projects.
 
 ##Table of Contents
