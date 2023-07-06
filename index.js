@@ -1,5 +1,7 @@
 // TODO: Add in necessary packages
 const inquirer = require('inquirer');
+const { writeToFile } = require('./writeToFile');
+const { generateMarkdown } = require('./Develop/utils/generateMarkdown');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
@@ -67,39 +69,30 @@ const questions = [
   }
 ];
 
-
-const writeToFile = data => {
-  return new Promise((resolve, reject) => {
-      // make a readme file and add to dist folder
-      fs.writeFile('./dist/README.md', data, err => {
-          // if there's an error, reject the Promise and send the error to .catch() method
-          if (err) {
-              reject (err);
-              // return out of the function here to make sure the Promise doesn't continut to execute the resolve() function
-              return;
-          }
-          // if everything went well, resolve the Promise and send the successful data to the .then() method
-          resolve({
-              ok: true,
-              message: console.log('Success! Navigate to the "dist" folder to see your README!')
-          });
-      })
-  })
-}
-
 // Initialize app
 const init = () => {
   return inquirer.prompt(questions);
-}
+};
+
+const writeToFile = data => {
+  fs.writeFile('README.md', data, err => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('README file created successfully!');
+    }
+  });
+};
+
 
 // Function call to initialize app
 init()
-.then(userInput => {
-  return generateMarkdown(userInput);
-})
-.then(readmeInfo => {
-  return writeToFile(readmeInfo);
-})
-.catch(err => {
-  console.log(err);
-})
+  .then(userInput => {
+    return generateMarkdown(userInput);
+  })
+  .then(readmeInfo => {
+    return writeToFile(readmeInfo);
+  })
+  .catch(err => {
+    console.log(err);
+  });
