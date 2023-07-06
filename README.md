@@ -13,6 +13,8 @@ Welcome to the README Generator! This command-line application allows you to qui
 ## Video Demo
 Please follow this youtube link to watch the full demonstration of this application:
 https://youtu.be/q6_maGgqHa0
+![Screen_Recording_2023-07-06_at_1_20_08_AM_AdobeExpress (2)](https://github.com/carolynlupi/READMEGenerator/assets/128636588/eb7edd7b-4016-4ea8-b9fb-bde4f8ed1602)
+
 
 ## Description
 The README Generator is a Node.js application that automates the process of creating a README file. It prompts the user with a series of questions about their project, such as the project title, description, installation instructions, usage guidelines, and more. Based on the user's input, the application generates a README file with the provided information.
