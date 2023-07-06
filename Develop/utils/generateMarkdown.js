@@ -7,7 +7,7 @@ function renderLicenseBadge(license) {
   if (!license) {
     return ``;
   } else {
-    return `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)}`
+    return `[![${license} license](https://img.shields.io/badge/License-${license}-blue.svg)](${renderLicenseLink(license)})`;
   }
   }
 // returns the license badge
@@ -50,7 +50,6 @@ function generateMarkdown(data) {
  * [Usage](#usage)
  * [Licenses](#licenses)
  * [Contributing](#contributing)
- * [Tests](#tests)
  * [Questions](#questions)
  * [Credits](#credits)
 
@@ -67,9 +66,6 @@ function generateMarkdown(data) {
 
  ## Contributing
  ${data.contributing}
-
- ## Tests
- ${data.tests}
 
  ## Questions
  Have questions about this project?  

@@ -1,6 +1,5 @@
 // TODO: Add in necessary packages
 const inquirer = require('inquirer');
-const { writeToFile } = require('./writeToFile');
 const { generateMarkdown } = require('./Develop/utils/generateMarkdown');
 const fs = require('fs');
 
@@ -33,7 +32,7 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'instructions',
+    name: 'installation',
     message: 'What are the instructions for installation?',
   },
   {
